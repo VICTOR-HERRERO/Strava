@@ -1,3 +1,20 @@
+
+
+
+
+
+
+
+
+//HAY QUE HACERLA BIEN, FALTAN MOVIDAS, MIRAR EN EL DRIVE
+
+
+
+
+
+
+
+
 package es.deusto.ingenieria.sd.auctions.client.gui;
 
 import java.awt.EventQueue;
@@ -18,15 +35,15 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import es.deusto.ingenieria.sd.auctions.client.controller.ControllerActiveChallenge;
-import es.deusto.ingenieria.sd.auctions.client.controller.ControllerRegularLogin;
+import es.deusto.ingenieria.sd.auctions.client.controller.ControllerLogin;
 import es.deusto.ingenieria.sd.auctions.client.controller.ControllerRegularRegister;
 
-public class WindowRegularLogin {
+public class WindowLogins {
 
 	private JFrame frame;
 	private JTextField textEmail;
 	private JTextField textFieldPassword;
-	private ControllerRegularLogin controller;
+	private ControllerLogin controller;
 
 	/**
 	 * Launch the application.
@@ -49,7 +66,7 @@ public class WindowRegularLogin {
 	/**
 	 * Create the application.
 	 */
-	public WindowRegularLogin(ControllerRegularLogin controllerRegularLogin) {
+	public WindowLogins(ControllerLogin controllerRegularLogin) {
 		this.controller = controllerRegularLogin;
 		initialize();
 	}

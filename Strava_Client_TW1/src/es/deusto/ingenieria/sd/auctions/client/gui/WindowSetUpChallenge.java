@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.ControllerRegularLogin;
+import es.deusto.ingenieria.sd.auctions.client.controller.ControllerLogin;
 import es.deusto.ingenieria.sd.auctions.client.controller.ControllerSetUpChallenge;
 
 import javax.swing.JButton;
@@ -114,8 +114,8 @@ public class WindowSetUpChallenge {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ControllerRegularLogin crl = new ControllerRegularLogin(controller.getServiceLocator());
-				WindowRegularLogin wrl = new WindowRegularLogin(crl);
+				ControllerLogin crl = new ControllerLogin(controller.getServiceLocator());
+				WindowLogins wrl = new WindowLogins(crl);
 				frame.dispose();
 			}
 		});

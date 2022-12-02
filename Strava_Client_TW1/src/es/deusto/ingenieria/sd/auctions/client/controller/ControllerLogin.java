@@ -1,3 +1,18 @@
+
+
+
+
+
+
+
+//HAY QUE HACER CAMBIOS, MIRAD DRIVE (METER LOGOUT Y TAL)
+
+
+
+
+
+
+
 package es.deusto.ingenieria.sd.auctions.client.controller;
 
 import java.rmi.RemoteException;
@@ -5,12 +20,12 @@ import java.rmi.RemoteException;
 import es.deusto.ingenieria.sd.auctions.client.remote.ServiceLocator;
 
 
-public class ControllerRegularLogin {
+public class ControllerLogin {
 	private ServiceLocator serviceLocator;
 	private long token = -1;
 	
 	
-	public ControllerRegularLogin(ServiceLocator serviceLocator) {
+	public ControllerLogin(ServiceLocator serviceLocator) {
 		this.serviceLocator = serviceLocator;
 	}
 	

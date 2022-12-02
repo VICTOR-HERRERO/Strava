@@ -8,7 +8,7 @@ import java.awt.FlowLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import es.deusto.ingenieria.sd.auctions.client.controller.ControllerRegularLogin;
+import es.deusto.ingenieria.sd.auctions.client.controller.ControllerLogin;
 import es.deusto.ingenieria.sd.auctions.client.controller.ControllerRegularRegister;
 
 import javax.swing.JButton;
@@ -129,8 +129,8 @@ public class WindowRegularRegister {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ControllerRegularLogin crl = new ControllerRegularLogin(controller.getServiceLocator());
-				WindowRegularLogin wrl = new WindowRegularLogin(crl);
+				ControllerLogin crl = new ControllerLogin(controller.getServiceLocator());
+				WindowLogins wrl = new WindowLogins(crl);
 				frame.dispose();
 			}
 		});
