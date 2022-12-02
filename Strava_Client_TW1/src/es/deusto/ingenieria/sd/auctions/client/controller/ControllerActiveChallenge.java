@@ -35,14 +35,7 @@ public class ControllerActiveChallenge {
 	}
 	
 	
-	public void logout() {
-		try {
-			this.serviceLocator.getService().logout(token);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
+
 
 	public long getToken(){
 		return token;
