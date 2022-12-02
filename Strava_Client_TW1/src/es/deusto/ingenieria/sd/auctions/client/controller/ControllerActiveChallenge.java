@@ -33,9 +33,6 @@ public class ControllerActiveChallenge {
 			return false;
 		}
 	}
-	
-	
-
 
 	public long getToken(){
 		return token;

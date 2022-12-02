@@ -5,8 +5,8 @@ import java.util.Date;
 
 import es.deusto.ingenieria.sd.auctions.client.remote.ServiceLocator;
 
-
 public class ControllerSetUpChallenge {
+
 	private ServiceLocator serviceLocator;
 	private long token = -1;
 	

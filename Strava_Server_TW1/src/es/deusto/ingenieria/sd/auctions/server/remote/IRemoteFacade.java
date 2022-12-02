@@ -11,12 +11,16 @@ import es.deusto.ingenieria.sd.auctions.server.data.dto.ChallengeDTO;
 //This interface defines the API of the Server. It represents the Remote Facade pattern
 public interface IRemoteFacade extends Remote {	
 
-	public long stravaLogin(String email, String password) throws RemoteException;
+	public long regularLogin(String email, String password) throws RemoteException;
+	
+	public long externalLogin(String email) throws RemoteException;
 		
 	public void logout(long token) throws RemoteException;
 	
-	public long stravaRegister(String email, String name, Date birthDate, int weight, int heigth, int maxRate, int restRate, String password ) throws RemoteException;
-		
+	public long regularRegister(String email, String name, Date birthDate, int weight, int heigth, int maxRate, int restRate, String password ) throws RemoteException;
+	
+	public long externalRegister(String email, String password ) throws RemoteException;
+	
 	public List<ChallengeDTO> getActiveChallenges() throws RemoteException;
 	
 	public boolean acceptChallenge(long token, Challenge challenge) throws RemoteException;

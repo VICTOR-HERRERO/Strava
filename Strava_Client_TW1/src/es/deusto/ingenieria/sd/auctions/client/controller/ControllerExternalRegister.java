@@ -1,15 +1,3 @@
-
-
-
-
-
-
-
-//HAY QUE CAMBIAR MOVIDAS
-
-
-
-
 package es.deusto.ingenieria.sd.auctions.client.controller;
 
 import java.rmi.RemoteException;
@@ -27,9 +15,10 @@ public class ControllerExternalRegister {
 		this.serviceLocator = serviceLocator;
 	}
 	
-	public void RegularRegister(String email, Date birthDate, int weight, int height, int maxRate, int restRate, String password) {
+	//NOT SURE HOW TO DO THE ENUM
+	public void ExternalRegister(String email/*, Enum Facebook_Google*/) {
 		try {
-			this.token = this.serviceLocator.getService().RegularRegister(email, birthDate, weight, height, maxRate, restRate, password);
+			this.token = this.serviceLocator.getService().ExternalRegister(email);
 		} catch (RemoteException e) {
 			System.out.println("# Error at login: " + e);
 		}

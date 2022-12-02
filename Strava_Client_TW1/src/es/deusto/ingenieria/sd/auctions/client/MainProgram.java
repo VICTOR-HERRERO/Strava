@@ -30,7 +30,8 @@ public class MainProgram {
 		WindowRegularRegister wrr = new WindowRegularRegister(crr);
 		
 		//Login
-		wrl.regularLogin();		
+		wrl.regularLogin();
+		
 		
 		//Here we should add the actions that will be performed
 	}

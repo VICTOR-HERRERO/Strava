@@ -156,5 +156,9 @@ public class WindowLogins {
 		String sha1 = org.apache.commons.codec.digest.DigestUtils.sha1Hex(textFieldPassword.getText());
 		return this.controller.RegularLogin(textEmail.getText(), sha1);
 	}
+	public boolean externalLogin() {
+		//String sha1 = org.apache.commons.codec.digest.DigestUtils.sha1Hex(textFieldPassword.getText());
+		return this.controller.RegularLogin(textEmail.getText(), textFieldPassword.getText());
+	}
 	
 }

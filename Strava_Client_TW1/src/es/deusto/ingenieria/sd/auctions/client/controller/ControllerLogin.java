@@ -1,18 +1,3 @@
-
-
-
-
-
-
-
-//HAY QUE HACER CAMBIOS, MIRAD DRIVE (METER LOGOUT Y TAL)
-
-
-
-
-
-
-
 package es.deusto.ingenieria.sd.auctions.client.controller;
 
 import java.rmi.RemoteException;
@@ -39,18 +24,29 @@ public class ControllerLogin {
 			return false;
 		}
 	}
-	//NOT SURE IF THIS WILL BE LIKE THIS OF IF WE HAVE TO DO AN DIFERENTATION BETWEEN EXTERNAL TYPES
-	public boolean ExternalLogin(String email) {
-		try {
-			this.token = this.serviceLocator.getService().ExternalLogin(email);
-			return true;
-		} catch (RemoteException e) {
-			System.out.println("# Error at login: " + e);
-			this.token = -1;
-			return false;
+	//NOT SURE IF THIS IS CORRECT
+	public boolean ExternalLogin(String email, Boolean F_G) {
+		if(F_G == false) {
+			try {
+				this.token = this.serviceLocator.getService().ExternalLogin(email, false);
+				return true;
+			} catch (RemoteException e) {
+				System.out.println("# Error at login: " + e);
+				this.token = -1;
+				return false;
+			}
+		}else {
+			try {
+				this.token = this.serviceLocator.getService().ExternalLogin(email, true);
+				return true;
+			} catch (RemoteException e) {
+				System.out.println("# Error at login: " + e);
+				this.token = -1;
+				return false;
+			}
 		}
 	}
-	
+
 	public void logout() {
 		try {
 			this.serviceLocator.getService().logout(token);

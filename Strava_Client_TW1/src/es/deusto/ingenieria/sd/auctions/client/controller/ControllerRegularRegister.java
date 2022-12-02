@@ -1,14 +1,3 @@
-
-
-
-
-
-
-////HAY QUE CAMBIAR MOVIDAS
-
-
-
-
 package es.deusto.ingenieria.sd.auctions.client.controller;
 
 import java.rmi.RemoteException;
