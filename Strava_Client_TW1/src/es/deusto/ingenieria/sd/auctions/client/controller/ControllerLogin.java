@@ -14,54 +14,32 @@ public class ControllerLogin {
 		this.serviceLocator = serviceLocator;
 	}
 	
-	public boolean RegularLogin(String email, String password) {
+	public boolean login(String email, String password) {
 		try {
-			this.token = this.serviceLocator.getService().RegularLogin(email, password);
+			this.token = this.serviceLocator.getService().login(email, password);			
 			return true;
 		} catch (RemoteException e) {
-			System.out.println("# Error at login: " + e);
+			System.out.println("# Error during login: " + e);
 			this.token = -1;
 			return false;
 		}
 	}
-	//NOT SURE IF THIS IS CORRECT
-	public boolean ExternalLogin(String email, Boolean F_G) {
-		if(F_G == false) {
-			try {
-				this.token = this.serviceLocator.getService().ExternalLogin(email, false);
-				return true;
-			} catch (RemoteException e) {
-				System.out.println("# Error at login: " + e);
-				this.token = -1;
-				return false;
-			}
-		}else {
-			try {
-				this.token = this.serviceLocator.getService().ExternalLogin(email, true);
-				return true;
-			} catch (RemoteException e) {
-				System.out.println("# Error at login: " + e);
-				this.token = -1;
-				return false;
-			}
+	
+	public void logout() {
+		try {
+			this.serviceLocator.getService().logout(this.token);
+			this.token = -1;
+		} catch (RemoteException e) {
+			System.out.println("# Error during logout: " + e);
 		}
 	}
 
-	public void logout() {
-		try {
-			this.serviceLocator.getService().logout(token);
-		} catch (RemoteException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
 	public long getToken() {
 		return token;
 	}
 	
 	public ServiceLocator getServiceLocator() {
-		return this.serviceLocator;
+		return serviceLocator;
 	}
 	
 }
