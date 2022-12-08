@@ -37,10 +37,11 @@ import javax.swing.JTextField;
 import es.deusto.ingenieria.sd.auctions.client.controller.ControllerActiveChallenge;
 import es.deusto.ingenieria.sd.auctions.client.controller.ControllerLogin;
 import es.deusto.ingenieria.sd.auctions.client.controller.ControllerRegularRegister;
+import es.deusto.ingenieria.sd.auctions.client.remote.ServiceLocator;
 
 public class WindowLogins {
 
-	private JFrame frame;
+	public JFrame frame;
 	private JTextField textEmail;
 	private JTextField textFieldPassword;
 	private ControllerLogin controller;
@@ -66,15 +67,9 @@ public class WindowLogins {
 	/**
 	 * Create the application.
 	 */
-	public WindowLogins(ControllerLogin controllerRegularLogin) {
-		this.controller = controllerRegularLogin;
-		initialize();
-	}
+	public WindowLogins(ServiceLocator service) {
+		controller = new ControllerLogin(service);
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -160,5 +155,6 @@ public class WindowLogins {
 		//String sha1 = org.apache.commons.codec.digest.DigestUtils.sha1Hex(textFieldPassword.getText());
 		return this.controller.RegularLogin(textEmail.getText(), textFieldPassword.getText());
 	}
+
 	
 }
