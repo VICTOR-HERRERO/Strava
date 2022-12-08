@@ -16,7 +16,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Font;
 
-public class WindowRegularRegister {
+public class WindowRegister {
 
 	private JFrame frame;
 	private JTextField textFieldEmail;
@@ -49,7 +49,7 @@ public class WindowRegularRegister {
 	/**
 	 * Create the application.
 	 */
-	public WindowRegularRegister(ControllerRegularRegister controllerRegularRegister) {
+	public WindowRegister(ControllerRegularRegister controllerRegularRegister) {
 		this.controller = controllerRegularRegister;
 		initialize();
 	}
@@ -130,7 +130,7 @@ public class WindowRegularRegister {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ControllerLogin crl = new ControllerLogin(controller.getServiceLocator());
-				WindowLogins wrl = new WindowLogins(crl);
+				WindowLogin wrl = new WindowLogin(crl);
 				frame.dispose();
 			}
 		});

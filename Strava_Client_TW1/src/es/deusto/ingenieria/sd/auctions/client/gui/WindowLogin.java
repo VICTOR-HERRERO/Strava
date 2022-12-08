@@ -39,7 +39,7 @@ import es.deusto.ingenieria.sd.auctions.client.controller.ControllerLogin;
 import es.deusto.ingenieria.sd.auctions.client.controller.ControllerRegularRegister;
 import es.deusto.ingenieria.sd.auctions.client.remote.ServiceLocator;
 
-public class WindowLogins {
+public class WindowLogin {
 
 	public JFrame frame;
 	private JTextField textEmail;
@@ -67,7 +67,7 @@ public class WindowLogins {
 	/**
 	 * Create the application.
 	 */
-	public WindowLogins(ServiceLocator service) {
+	public WindowLogin(ServiceLocator service) {
 		controller = new ControllerLogin(service);
 
 		frame = new JFrame();
@@ -132,7 +132,7 @@ public class WindowLogins {
 					if (resp.equals(registrationWay[0])) {
 
 						ControllerRegularRegister crr = new ControllerRegularRegister(controller.getServiceLocator());
-						WindowRegularRegister wrr = new WindowRegularRegister(crr);
+						WindowRegister wrr = new WindowRegister(crr);
 						frame.dispose();
 
 					} else if (resp.equals(registrationWay[1])) {

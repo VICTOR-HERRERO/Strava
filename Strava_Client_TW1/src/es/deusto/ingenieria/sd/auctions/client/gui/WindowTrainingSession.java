@@ -115,7 +115,7 @@ public class WindowTrainingSession {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ControllerLogin crl = new ControllerLogin(controller.getServiceLocator());
-				WindowLogins wrl = new WindowLogins(crl);
+				WindowLogin wrl = new WindowLogin(crl);
 				frame.dispose();
 			}
 		});

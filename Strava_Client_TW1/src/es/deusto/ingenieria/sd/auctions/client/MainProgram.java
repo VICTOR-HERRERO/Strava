@@ -5,8 +5,8 @@ import java.util.List;
 
 import es.deusto.ingenieria.sd.auctions.client.controller.ControllerLogin;
 import es.deusto.ingenieria.sd.auctions.client.controller.ControllerRegularRegister;
-import es.deusto.ingenieria.sd.auctions.client.gui.WindowLogins;
-import es.deusto.ingenieria.sd.auctions.client.gui.WindowRegularRegister;
+import es.deusto.ingenieria.sd.auctions.client.gui.WindowLogin;
+import es.deusto.ingenieria.sd.auctions.client.gui.WindowRegister;
 import es.deusto.ingenieria.sd.auctions.client.remote.ServiceLocator;
 
 public class MainProgram {
@@ -22,7 +22,7 @@ public class MainProgram {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						WindowLogins window = new WindowLogins(serviceLocator);
+						WindowLogin window = new WindowLogin(serviceLocator);
 						window.frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
