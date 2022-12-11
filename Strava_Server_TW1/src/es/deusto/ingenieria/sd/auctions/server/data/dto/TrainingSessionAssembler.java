@@ -18,7 +18,7 @@ public class TrainingSessionAssembler {
 		return instance;
 	}
 
-	public TrainingSessionDTO trainingSessionToDTO(TrainingSession trainingSession) {
+	public static TrainingSessionDTO trainingSessionToDTO(TrainingSession trainingSession) {
 		TrainingSessionDTO dto = new TrainingSessionDTO();
 		
 		dto.setTitle(trainingSession.getTitle());

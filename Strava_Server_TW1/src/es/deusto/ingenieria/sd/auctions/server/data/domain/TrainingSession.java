@@ -1,11 +1,11 @@
 package es.deusto.ingenieria.sd.auctions.server.data.domain;
 
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Date;
+import java.io.Serializable;
 
-public class TrainingSession {
+
+public class TrainingSession implements Serializable {
 	private String title;
     private float distance;
     private Date startDate;
@@ -13,9 +13,11 @@ public class TrainingSession {
     private float duration;
     private Sport sport;
      
-    public TrainingSession(String title, float distance, Date startDate, Date startTime, float duration) {
+    public TrainingSession(String title, Sport sport, float distance, Date startDate, Date startTime, float duration) {
+		super();
 		
 		this.title = title;
+		this.sport = sport;
 		this.distance = distance;
 		this.startDate = startDate;
 		this.startTime = startTime;
@@ -65,14 +67,6 @@ public class TrainingSession {
     public String toString() {
         return "TrainingSession [title=" + title + ", distance=" + distance + ", startDate=" + startDate + ", startTime=" + startTime + ", duration=" + duration + "]";
     }
-
-    public boolean equals(Object obj) {
-		if (this.getClass().getName().equals(obj.getClass().getName())) {
-			return this.title.equals(((TrainingSession)obj).title);
-		}
-		
-		return false;
-	}
 
 	public Sport getSport() {
 		return sport;

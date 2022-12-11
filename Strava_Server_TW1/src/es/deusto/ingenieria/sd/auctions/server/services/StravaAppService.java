@@ -1,10 +1,5 @@
 package es.deusto.ingenieria.sd.auctions.server.services;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Challenge;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.TrainingSession;
 import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
@@ -13,12 +8,8 @@ import es.deusto.ingenieria.sd.auctions.server.data.domain.User;
 public class StravaAppService {
 
 	private static StravaAppService instance;
-	private List<Challenge> challenges;
-	private List<TrainingSession> trainingSessions;
 	
-	private StravaAppService() {
-		this.initializeData();
-	}
+	private StravaAppService() {}
 	
 	public static synchronized StravaAppService getInstance() {	
 		if(instance == null) {
@@ -28,28 +19,23 @@ public class StravaAppService {
 		else return instance;
 	}
 	
-	private void initializeData() {
-		
-	}
-
-	
-	public boolean setUpChallenge(User user, String name, Date startDate, Date endDate, Date startTime, long duration) {
-		
-		return false;
+	//Me pide que lo ponga static??
+	public void createTrainingSession(TrainingSession sesion, User user) {
+		User u = LoginAppService.getUserMap().get(user.getEmail());
+		u.getTrainingSessions().add(sesion);
+		LoginAppService.getUserMap().put(user.getEmail(), u);
 	}
 	
-	public boolean createTrainingSession(User user, String title, float distance, long duration) {
-		
-		return false;
+	public void createChallenge(Challenge challenge, User user) {
+		User u = LoginAppService.getUserMap().get(user.getEmail());
+		u.getChallenges().add(challenge);
+		LoginAppService.getUserMap().put(user.getEmail(), u);
 	}
 	
-	public List<Challenge> getActiveChallenges(){
-		return this.challenges;
-	}
-	
-	public boolean acceptChallenge(User user, Challenge challenge) {
-		System.out.print("challenge accepted");
-		return true;
+	public void activateChallenge(Challenge challenge, User user) {
+		User u = LoginAppService.getUserMap().get(user.getEmail());
+		u.getActiveChallenge().add(challenge);
+		LoginAppService.getUserMap().put(user.getEmail(), u);
 	}
 	
 }

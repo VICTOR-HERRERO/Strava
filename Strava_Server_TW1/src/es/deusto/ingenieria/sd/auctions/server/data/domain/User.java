@@ -3,33 +3,38 @@ package es.deusto.ingenieria.sd.auctions.server.data.domain;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
+import java.io.Serializable;
 
-
-public class User {	
+public class User implements Serializable {	
 	private String name;
-	private String password;
 	private String email;
     private Date birthDate;
-    private int userID;
-    private int weight;
-    private int height;
+    private float weight;
+    private float height;
     private int maxRate;
     private int restRate;
-    private List<TrainingSession> trainingSessions;
-    private List<Challenge> challenges;
+	private Provider provider;
+    private List<TrainingSession> trainingSessions = new ArrayList<>();
+    private List<Challenge> challenges = new ArrayList<>();
+    private List<Challenge> activeChallenge = new ArrayList<>();
     
-    public User(String name, String password, String email, Date birthDate, int userID, int weight, int height,
-			int maxRate, int restRate) {
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
+    
+    public User(String name, String email, Date birthDate, float weight, float height,
+			int maxRate, int restRate, int provider) {
 		
 		this.name = name;
-		this.password = password;
 		this.email = email;
 		this.birthDate = birthDate;
-		this.userID = userID;
 		this.weight = weight;
 		this.height = height;
 		this.maxRate = maxRate;
 		this.restRate = restRate;
+		this.provider = Provider.values()[provider];
+		this.challenges = new ArrayList<>();
+		this.trainingSessions = new ArrayList<>();
 	}
 
 	public String getName() {
@@ -39,18 +44,6 @@ public class User {
     public void setName(String name) {
         this.name = name;
     }
-
-    public boolean checkPassword(String password) {
-        return this.password.equals(password);
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPassword() {
-		return password;
-	}
 
 	public String getEmail() {
         return email;
@@ -68,7 +61,7 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public int getWeight() {
+    public float getWeight() {
         return weight;
     }
 
@@ -76,7 +69,7 @@ public class User {
         this.weight = weight;
     }
 
-    public int getHeight() {
+    public float getHeight() {
         return height;
     }
 
@@ -99,7 +92,16 @@ public class User {
     public void setRestRate(int restRate) {
         this.restRate = restRate;
     }
-
+    
+	public Provider getProvider() {
+		return provider;
+	}
+	
+	public void setProvider(int provider) {
+		this.provider = Provider.values()[provider];
+	}
+	
+	
     public List<TrainingSession> getTrainingSessions() {
         return trainingSessions;
     }
@@ -108,9 +110,11 @@ public class User {
         this.trainingSessions = trainingSessions;
     }
 
-    public void addTrainingSession(TrainingSession trainingSession) {
-        this.trainingSessions.add(trainingSession);
-    }
+	public void addTrainingSesion(TrainingSession trainingSession) {
+		if (trainingSession != null && !this.trainingSessions.contains(trainingSession)) {
+			this.trainingSessions.add(trainingSession);
+		}
+	}
 
     public List<Challenge> getChallenges() {
         return challenges;
@@ -120,15 +124,36 @@ public class User {
         this.challenges = challenges;
     }
 
-    public void addActiveChallenge(Challenge challenge) {
-        this.challenges.add(challenge);
+    public void addChallenge(Challenge challenge) {
+		if (challenge != null && !this.challenges.contains(challenge)) {
+			this.challenges.add(challenge);
+		}
     }
+    
+    public List<Challenge> getActiveChallenge() {
+		return activeChallenge;
+	}
+    
+	public void setActiveChallenge(List<Challenge> activeChallenge) {
+		this.activeChallenge = activeChallenge;
+	}
+	
 
-    public String toString() {
-        return "User [name=" + name + ", password=" + password + ", email=" + email + ", birthDate=" + birthDate
-                + ", weight=" + weight + ", height=" + height + ", maxRate=" + maxRate + ", restRate=" + restRate
-                + ", trainingSessions=" + trainingSessions + ", challenges=" + challenges + "]";
-    }
+	@Override
+	public String toString() {
+		StringBuffer result = new StringBuffer();
+		
+		result.append(this.name);
+		result.append(" - ");
+		result.append(this.email);
+		result.append(" - (");
+		result.append(this.activeChallenge.size());
+		result.append(" retos) - (");
+		result.append(this.trainingSessions.size());
+		result.append(" sesiones)");
+		
+		return result.toString();
+	}
 
     public boolean equals(Object obj) {
         if (this.getClass().getName().equals(obj.getClass().getName())){
@@ -137,15 +162,6 @@ public class User {
             return false;
         }
     }
-
-	public int getUserID() {
-		return userID;
-	}
-
-	public void setUserID(int userID) {
-		this.userID = userID;
-	}
-
 
 
 }

@@ -7,6 +7,7 @@ import java.util.Date;
 public class UserDTO implements Serializable {	
 	//This attribute is needed to implement the "Serializable" interface.
 	private static final long serialVersionUID = 1L;
+	private String name;
 	private String password;
 	private String email;
 	private Date birthdate;
@@ -14,8 +15,16 @@ public class UserDTO implements Serializable {
 	private float height;
 	private int maxHeartRate;
 	private int heartRateAtRest;
+	private int provider;
 	
 
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 	
 	public String getPassword() {
 		return password;
@@ -75,5 +84,33 @@ public class UserDTO implements Serializable {
 
 	public void setHeartRateAtRest(int heartRateAtRest) {
 		this.heartRateAtRest = heartRateAtRest;
+	}
+	
+	public int getProvider() {
+		return provider;
+	}
+
+	public void setProvider(int state) {
+		this.provider = state;
+	}
+	
+	@Override
+	public String toString() {
+		StringBuffer result = new StringBuffer();
+		
+		result.append(this.name);
+		result.append(" - ");
+		result.append(this.email);
+		
+		return result.toString();
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		if (this.getClass().getName().equals(obj.getClass().getName())) {
+			return this.email.equals(((UserDTO)obj).email);
+		}
+		
+		return false;
 	}
 }

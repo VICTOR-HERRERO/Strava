@@ -2,6 +2,8 @@ package es.deusto.ingenieria.sd.auctions.server.data.dto;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import java.util.ArrayList;
 
 import es.deusto.ingenieria.sd.auctions.server.data.domain.Sport;
 

@@ -20,8 +20,12 @@ public class UserAssembler {
 		UserDTO dto = new UserDTO();
 		
 		dto.setEmail(user.getEmail());
-		dto.setPassword(user.getPassword());
-
+		dto.setName(user.getName());
+		dto.setHeight(user.getHeight());
+		dto.setMaxHeartRate(user.getMaxRate());
+		dto.setHeartRateAtRest(user.getRestRate());
+		dto.setBirthdate(user.getBirthDate());
+		dto.setWeight(user.getWeight());
 		
 		return dto;
 	}

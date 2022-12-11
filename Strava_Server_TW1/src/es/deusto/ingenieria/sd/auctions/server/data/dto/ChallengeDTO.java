@@ -2,16 +2,17 @@ package es.deusto.ingenieria.sd.auctions.server.data.dto;
 
 import java.io.Serializable;
 import java.util.Date;
+import es.deusto.ingenieria.sd.auctions.server.data.domain.Sport;
 
 public class ChallengeDTO implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
-	private int IDChallenge;
 	private String name;
 	private Date startDate;
 	private Date endDate;
 	private boolean targetType;
 	private int targetTime;
+	private Sport sport;
 	
 	public String getName() {
 		return name;
@@ -53,17 +54,34 @@ public class ChallengeDTO implements Serializable {
 		this.targetTime = target;
 	}
 	
+	public Sport getSport() {
+		return sport;
+	}
+	
+	public void setSport(Sport sport) {
+		this.sport = sport;
+	}
+	
+	
 	@Override
 	public String toString() {
-		return "ChallengeDTO [name=" + name + "id=" + IDChallenge + ", startDate=" + startDate + ", endDate=" + endDate + ", targetType="
-				+ targetType + ", target=" + targetTime + "]";
+		StringBuffer result = new StringBuffer();
+		
+		result.append(this.name);
+		result.append(" - ");
+		result.append(this.startDate);
+		result.append(" - ");
+		result.append(this.endDate);
+		result.append(" - ");
+		result.append(this.targetTime);
+		result.append(" - ");
+		result.append(this.targetType);
+		result.append(" - ");
+		result.append(this.sport);
+		
+		return result.toString();		
 	}
 
-	public int getID() {
-		return IDChallenge;
-	}
 
-	public void setID(int ID) {
-		this.IDChallenge = ID;
-	}
+
 }

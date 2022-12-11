@@ -19,7 +19,7 @@ public class ChallengeAssembler {
 		return instance;
 	}
 
-	public ChallengeDTO challengeToDTO(Challenge challange) {
+	public static ChallengeDTO challengeToDTO(Challenge challange) {
 		ChallengeDTO dto = new ChallengeDTO();
 		
 		dto.setName(challange.getName());
@@ -27,6 +27,7 @@ public class ChallengeAssembler {
 		dto.setEndDate(challange.getEndDate());
 		dto.setTargetType(challange.getTargetType());
 		dto.setTargetTime(challange.getTargetTime());
+		dto.setSport(challange.getSport());
 		
 		return dto;
 	}
